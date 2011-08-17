@@ -1,0 +1,190 @@
+ /* ÉProject  menu   õ2011 - for study only                              Ä+
+    ÉReferent ÇMassimo Donati  - Promecut Srl                          õ Ä+
+    É         Çemail: max.donati@email.it                              õ Ä+
+    É         Çweb  : http://about.me/massimodonati                    õ Ä+
+    ÉPromecut SrL    õViareggio - Italy    www.promecut.it               Ä+
+    õ                                                                    Ä+
+    õ ÄAfter initializing,  DO NOT MODIFY OR MOVE                      Å Ä+
+    õ Ä                                                                Å Ä+
+    õ ÄTHIS MATERIAL IS PROVIDED BY PROMECUT FOR ILLUSTRATIVE PURPOSES Å Ä+
+    õ ÄONLY AND HAS NOT BEEN THOROUGHLY TESTED UNDER ALL CONDITIONS.   Å Ä+
+    õ ÄPROMECUT, THEREFORE, CANNOT GUARANTEE OR IMPLY RELIABILITY,     Å Ä+
+    õ ÄSERVICEABILITY, OR FUNCTION OF THIS MATERIAL. PROMECUT PROVIDES Å Ä+
+    õ ÄNO PROGRAM SERVICES FOR THIS MATERIAL.  ALL MATERIAL CONTAINED  Å Ä+
+    õ ÄHEREIN IS PROVIDED TO YOU "AS IS" WITHOUT ANY WARRANTIES OF     Å Ä+
+    õ ÄANY KIND.  THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS   Å Ä+
+    õ ÄFOR A PARTICULAR PURPOSE AND NON-INFRINGMENT ARE EXPRESSLY      Å Ä+
+    õ ÄDISCLAIMED.  SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION      Å Ä+
+    õ ÄOF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY    Å Ä+
+    õ ÄTO YOU.  IN NO EVENT WILL PROMECUT BE LIABLE TO ANY PARTY FOR   Å Ä+
+    õ ÄANY DIRECT, INDIRECT, SPECIAL OR OTHER CONSEQUENTIAL DAMAGES    Å Ä+
+    õ ÄFOR ANY USE OF THIS MATERIAL, INCLUDING, WITHOUT LIMITATION, ANYÅ Ä+
+    õ ÄLOST PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR OTHER  Å Ä+
+    õ ÄDATA ON YOUR INFORMATION HANDLING SYSTEM OR OTHERWISE, EVEN     Å Ä+
+    õ ÄIF WE ARE EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. Å Ä+
+    õ Ä                                                                Å Ä+
+    õ Ä(C) Copyright PROMECUT S.r.L. 1996, 2010                        Å Ä+
+    õ ÄAll rights reserved. For open source Use and Study only         Å Ä+
+    õ Ä                                                                Å Ä+
+    õ ÄLicensed Materials - Property of PROMECUT                       Å Ä+
+    õ                                                                    Ä+
+    ô  DESCRIPTION:  Å                                                   Ä+
+    ô ò|MENU CLP program                                               Å Ä+
+    ô ò|                                                               Å Ä+
+    ô ò|                                                               Å Ä+
+    ô                Å                                                   Ä+
+    ì  NOTES CHANGES Å                                                   Ä+
+    ì Än∞  ßßß)       in date  ßß/ßß/ßßßß                              Å Ä+
+    ì Ä       |Description Changes                                     Å Ä+
+    ì Ä       |                                                        Å Ä+
+    ì Ä-------+--------------------------------------------------------Å Ä+
+    ì                Å                                                   Ä+
+    Å  CHANGES:      ì                                                   Ä+
+    Å Ä---Date--- Who What                                             ì Ä+
+    Å Äßß/ßß/ßßßß  ßß ßßßßßßßßßßßßßßß or reference to  n∞ßßß           ì Ä+
+    Å Ä                  [in the case of changes complex ]             ì Ä+
+    Å Ä                                                                ì Ä+
+    Å                ì                                                   Ä+
+    õ PGM            É                                                   Ä+
+    õ****************É***************************************************Ä*/
+             PGM
+
+             DCLF       FILE(PßMENU1FM)
+             DCL        VAR(&YESNO)   TYPE(*CHAR) LEN(2)
+             DCL        VAR(&ERRFLAG)  TYPE(*LGL)
+             DCL        VAR(&MSGID)    TYPE(*CHAR) LEN(7)
+             DCL        VAR(&MSGDTA)   TYPE(*CHAR) LEN(100)
+             DCL        VAR(&MSGF)     TYPE(*CHAR) LEN(10)
+             DCL        VAR(&MSGFLIB)  TYPE(*CHAR) LEN(10)
+             DCL        VAR(&KEYVAR)   TYPE(*CHAR) LEN(04)
+             DCL        VAR(&TAB)   TYPE(*CHAR) LEN(10)
+             DCL        VAR(&DATI)   TYPE(*CHAR) LEN(20)
+             DCL        VAR(&FILLER)   TYPE(*CHAR) LEN(74)
+             DCL        VAR(&JOB)   TYPE(*CHAR) LEN(10)
+             MONMSG     CPF9999 EXEC(GOTO  ERRTAG1)
+
+             SNDF       RCDFMT(DUMMY)
+LOOP:        SNDRCVF    RCDFMT(MNUBARR)
+
+             RTVJOBA    JOB(&JOB)
+
+
+ /* ESEGUE OPERAZIONI */
+             IF         COND((&SELEC *EQ 99) *AND (&OPTION *EQ 99)) +
+                          THEN(DO)
+                   GOTO       CMDLBL(FINE)
+             ENDDO
+             IF         COND(&IN03) THEN(RETURN)
+/*----------------------------------------------------------------*/
+             IF         COND(&SELEC *EQ  1) THEN(DO)
+                        IF COND(&OPTION *EQ  1) THEN(DO)
+                           CHGVAR  &IN03 '1'
+                           RETURN
+                           ENDDO
+                        IF COND(&OPTION *EQ  2) THEN(DO)
+                           SIGNOFF
+                           ENDDO
+                        GOTO FINE
+                        ENDDO
+/*----------------------------------------------------------------*/
+             IF         COND(&SELEC *EQ  2) THEN(DO)
+
+                        IF COND(&OPTION *EQ  1) THEN(DO)
+                           ? wrksplf
+                           ENDDO
+
+                        IF COND(&OPTION *EQ  2) THEN(DO)
+                           ? wrkactjob
+                           ENDDO
+                        IF COND(&OPTION *EQ  3) THEN(DO)
+ /* replacing the comment with your program or command */
+                           /* other command */
+                           ENDDO
+                        IF COND(&OPTION *EQ  4) THEN(DO)
+ /* replacing the comment with your program or command */
+                           /* other command */
+                           ENDDO
+
+                        GOTO LOOP
+                        ENDDO
+
+/*----------------------------------------------------------------*/
+             IF         COND(&SELEC *EQ  3) THEN(DO)
+
+                        IF COND(&OPTION *EQ  1) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  CALL program01           +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+                        IF COND(&OPTION *EQ  2) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  CALL program02           +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+                        IF COND(&OPTION *EQ  3) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  CALL program03           +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+
+                        GOTO LOOP
+                        ENDDO
+/*----------------------------------------------------------------*/
+             IF         COND(&SELEC *EQ  4) THEN(DO)
+                        IF COND(&OPTION *EQ  1) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  other 01                 +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+                        IF COND(&OPTION *EQ  2) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  other 02                 +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+                        IF COND(&OPTION *EQ  3) THEN(DO)
+ /* replacing the comment with your program or command */
+                          /*  other 03                 +
+                             MONMSG     MSGID(CPF0000) */
+                           ENDDO
+
+                        GOTO LOOP
+                        ENDDO
+/*----------------------------------------------------------------*/
+/*  standard routines handling error                              */
+/*----------------------------------------------------------------*/
+ERRTAG1:
+             IF         COND(&ERRFLAG) THEN(DO)
+                        SNDPGMMSG MSGID(CPF9999)  +
+                                  MSGF(QCPFMSG)   +
+                                  MSGTYPE(*ESCAPE)
+                        ENDDO
+             CHGVAR     &ERRFLAG '1'
+ERRTAG2:
+             RCVMSG     MSGTYPE(*DIAG)            +
+                        RMV(*NO)                  +
+                        KEYVAR(&KEYVAR)           +
+                        MSGDTA(&MSGDTA)           +
+                        MSGID(&MSGID)             +
+                        MSGF(&MSGF)               +
+                        SNDMSGFLIB(&MSGFLIB)
+             IF         COND(&KEYVAR *NE '    ') THEN(DO)
+                        RMVMSG    MSGKEY(&KEYVAR)
+                        SNDPGMMSG MSGID(&MSGID)   +
+                                  MSGF(&MSGFLIB/&MSGF) +
+                                  MSGDTA(&MSGDTA)      +
+                                  MSGTYPE(*DIAG)
+                        GOTO      ERRTAG2
+                        ENDDO
+             RCVMSG     MSGTYPE(*EXCP)            +
+                        MSGDTA(&MSGDTA)           +
+                        MSGID(&MSGID)             +
+                        MSGF(&MSGF)               +
+                        SNDMSGFLIB(&MSGFLIB)
+             MONMSG     CPF0000
+             SNDPGMMSG  MSGID(&MSGID)             +
+                        MSGF(&MSGF)               +
+                        MSGDTA(&MSGDTA)           +
+                        MSGTYPE(*ESCAPE)
+             MONMSG     CPF0000
+FINE:        RCLRSC
+             ENDPGM

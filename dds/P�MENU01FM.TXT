@@ -1,0 +1,104 @@
+     A*ƒProject  menu   ›2011 - for study only                              €
+     A*ƒReferent ‚Massimo Donati  - Promecut Srl                          › €
+     A*ƒ         ‚email: max.donati@email.it                              › €
+     A*ƒ         ‚web  : http://about.me/massimodonati                    › €
+     A*ƒPromecut SrL    ›Viareggio - Italy    www.promecut.it               €
+      *›                                                                    €
+      *› €After initializing,  DO NOT MODIFY OR MOVE                       €
+      *› €                                                                 €
+      *› €THIS MATERIAL IS PROVIDED BY PROMECUT FOR ILLUSTRATIVE PURPOSES  €
+      *› €ONLY AND HAS NOT BEEN THOROUGHLY TESTED UNDER ALL CONDITIONS.    €
+      *› €PROMECUT, THEREFORE, CANNOT GUARANTEE OR IMPLY RELIABILITY,      €
+      *› €SERVICEABILITY, OR FUNCTION OF THIS MATERIAL. PROMECUT PROVIDES  €
+      *› €NO PROGRAM SERVICES FOR THIS MATERIAL.  ALL MATERIAL CONTAINED   €
+      *› €HEREIN IS PROVIDED TO YOU "AS IS" WITHOUT ANY WARRANTIES OF      €
+      *› €ANY KIND.  THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS    €
+      *› €FOR A PARTICULAR PURPOSE AND NON-INFRINGMENT ARE EXPRESSLY       €
+      *› €DISCLAIMED.  SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION       €
+      *› €OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY     €
+      *› €TO YOU.  IN NO EVENT WILL PROMECUT BE LIABLE TO ANY PARTY FOR    €
+      *› €ANY DIRECT, INDIRECT, SPECIAL OR OTHER CONSEQUENTIAL DAMAGES     €
+      *› €FOR ANY USE OF THIS MATERIAL, INCLUDING, WITHOUT LIMITATION, ANY €
+      *› €LOST PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR OTHER   €
+      *› €DATA ON YOUR INFORMATION HANDLING SYSTEM OR OTHERWISE, EVEN      €
+      *› €IF WE ARE EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  €
+      *› €                                                                 €
+      *› €(C) Copyright PROMECUT S.r.L. 1996, 2010                         €
+      *› €All rights reserved. For open source Use and Study only          €
+      *› €                                                                 €
+      *› €Licensed Materials - Property of PROMECUT                        €
+      *›                                                                    €
+     A*™  DESCRIPTION:                                                     €
+     A*™ ˜|MENU VIDEO FILE                                                 €
+     A*™ ˜|                                                                €
+     A*™ ˜|                                                                €
+     A*™                                                                   €
+     A*“  NOTES CHANGES                                                    €
+     A*“ €n°  §§§)       in date  §§/§§/§§§§                               €
+     A*“ €       |Description Changes                                      €
+     A*“ €       |                                                         €
+     A*“ €-------+-------------------------------------------------------- €
+     A*“                                                                   €
+     A*  CHANGES:      “                                                   €
+     A* €---Date--- Who What                                             “ €
+     A* €§§/§§/§§§§  §§ §§§§§§§§§§§§§§§ or reference to  n°§§§           “ €
+     A* €                  [in the case of changes complex ]             “ €
+     A* €                                                                “ €
+     A*                “                                                   €
+     A*› A              ƒ                                                   €
+     A*›****************ƒ***************************************************€
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      CHGINPDFT
+     A                                      ENTFLDATR
+     A                                      MNUCNL(CA12 12)
+     A                                      CA03(03)
+     A*----------------------------------------------------------------------
+     A          R DUMMY                     ASSUME
+     A                                  1  2' '
+     A*----------------------------------------------------------------------
+     A          R MNUBARR
+     A                                      ENTFLDATR
+     A                                      OVERLAY
+     A                                      MNUBAR
+     A                                      MNUBARDSP(&OPTION)
+     A            OPTION         2S 0H
+      * note:'>' sets the letter on the right to activate the option
+     A            SELEC          2Y 0B  1  2MNUBARSEP((*COLOR WHT) (*DSPATR HI))
+     A                                      MNUBARCHC(1 PULL1 '>Exit'  )
+     A                                      MNUBARCHC(2 PULL2 '>Command ...')
+     A                                      MNUBARCHC(3 PULL3 '>Program ...')
+     A                                      MNUBARCHC(4 PULL4 '>Other ...')
+     A*----------------------------------------------------------------------
+     A          R PULL1
+     A                                      PULLDOWN
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
+     A            P3CHOI         2Y 0B  1  2SNGCHCFLD
+     A                                      CHOICE(1 '>Exit to menu')
+     A                                      CHCACCEL(1 'F3')
+     A                                      CHOICE(2 '>Close Session')
+     A*----------------------------------------------------------------------
+     A          R PULL2
+     A                                      PULLDOWN(*SLTIND)
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
+     A            P1CHOI         2Y 0B  1  2SNGCHCFLD
+     A                                      CHOICE(1 '>Wrksplf             ')
+     A                                      CHOICE(2 'Wrk>actjob           ')
+     A                                      CHOICE(3 '>....................')
+     A                                      CHOICE(4 '>....................')
+     A
+     A*----------------------------------------------------------------------
+     A          R PULL3
+     A                                      PULLDOWN(*SLTIND)
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
+     A            P1CHOI         2Y 0B  1  2SNGCHCFLD
+     A                                      CHOICE(1 'Program >1 .....     ')
+     A                                      CHOICE(2 'Program >2 .....     ')
+     A                                      CHOICE(3 'Program >3 .....     ')
+     A*----------------------------------------------------------------------
+     A          R PULL4
+     A                                      PULLDOWN(*SLTIND)
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR HI))
+     A            P1CHOI         2Y 0B  1  2SNGCHCFLD
+     A                                      CHOICE(1 'Other >1             ')
+     A                                      CHOICE(2 '>..(nothing).........')
+     A                                      CHOICE(3 '>..(nothing).........')
