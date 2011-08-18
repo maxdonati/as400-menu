@@ -2,7 +2,7 @@
      A*ÉReferent ÇMassimo Donati  - Promecut Srl                          õ Ä
      A*É         Çemail: max.donati@email.it                              õ Ä
      A*É         Çweb  : http://about.me/massimodonati                    õ Ä
-     A*ÉPromecut SrL    õViareggio - Italy    www.promecut.it               Ä
+     A*ÉPromecut SrL    õViareggio - Italy  www.promecut.it                 Ä
       *õ                                                                    Ä
       *õ ÄAfter initializing,  DO NOT MODIFY OR MOVE                      Å Ä
       *õ Ä                                                                Å Ä

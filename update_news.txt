@@ -1,0 +1,13 @@
+August 18 2011 : image added # 4: DDS video source.
+   
+
+As you can see from image the source contains special characters for colors.
+   
+
+The transfer of these characters cause problems to view the git's page on browser, 
+but once downloaded you can read and see the source code.
+
+   
+
+If this creates problems in the transfer of as400, 
+you can to remove comment lines from the source code.  Å 

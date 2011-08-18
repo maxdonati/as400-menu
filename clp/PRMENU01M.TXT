@@ -49,7 +49,7 @@
     ›****************ƒ***************************************************€*/
              PGM
 
-             DCLF       FILE(P§MENU1FM)
+             DCLF       FILE(PRMENU1FM)
              DCL        VAR(&YESNO)   TYPE(*CHAR) LEN(2)
              DCL        VAR(&ERRFLAG)  TYPE(*LGL)
              DCL        VAR(&MSGID)    TYPE(*CHAR) LEN(7)
